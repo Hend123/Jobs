@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="favJobItem"
+            type="com.example.jobs.pojo.Job" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <FrameLayout
+                android:id="@+id/fram"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+                <ImageView
+                    android:id="@+id/campanyLogo"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@string/company_logo"
+                    android:scaleType="centerInside"
+                    app:loadImage="@{favJobItem.company_logo}" />
+                <ImageButton
+                    android:id="@+id/favBtnDetails"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@drawable/star_btn"
+                    android:contentDescription="@string/star_button"
+                    android:layout_gravity="end|top"/>
+            </FrameLayout>
+
+
+
+            <TextView
+                android:id="@+id/label1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/title_name"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/jobTitleDetails"
+                app:layout_constraintTop_toBottomOf="@id/fram" />
+
+            <TextView
+                android:id="@+id/jobTitleDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="@{favJobItem.title}"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/label1"
+                app:layout_constraintLeft_toRightOf="@id/label1"
+                app:layout_constraintTop_toTopOf="@id/label1" />
+
+            <TextView
+                android:id="@+id/label2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/job_type"
+                app:layout_constraintLeft_toLeftOf="@id/label1"
+                app:layout_constraintTop_toBottomOf="@id/label1" />
+
+            <TextView
+                android:id="@+id/jobTypeDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="@{favJobItem.type}"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/label2"
+                app:layout_constraintLeft_toRightOf="@id/label2"
+                app:layout_constraintTop_toTopOf="@id/label2" />
+
+            <TextView
+                android:id="@+id/label3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/company_name"
+                app:layout_constraintLeft_toLeftOf="@id/label2"
+                app:layout_constraintTop_toBottomOf="@id/label2" />
+
+            <TextView
+                android:id="@+id/campanyNameDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="@{favJobItem.company}"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/label3"
+                app:layout_constraintLeft_toRightOf="@id/label3"
+                app:layout_constraintTop_toTopOf="@id/label3" />
+
+            <TextView
+                android:id="@+id/label4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/job_url"
+                app:layout_constraintLeft_toLeftOf="@id/label3"
+                app:layout_constraintTop_toBottomOf="@id/label3" />
+
+            <TextView
+                android:id="@+id/jobUrlDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="@string/not_avaliable"
+                android:textSize="18sp"
+                app:getHyperLink="@{favJobItem.url}"
+                app:layout_constraintBottom_toBottomOf="@id/label4"
+                app:layout_constraintLeft_toRightOf="@id/label4"
+                app:layout_constraintTop_toTopOf="@id/label4" />
+
+            <TextView
+                android:id="@+id/label5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/company_url"
+                app:layout_constraintLeft_toLeftOf="@id/label4"
+                app:layout_constraintTop_toBottomOf="@id/label4" />
+
+            <TextView
+                android:id="@+id/companyUrlDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="@string/not_avaliable"
+                android:textSize="18sp"
+                app:getHyperLink='@{favJobItem.company_url != null ? favJobItem.company_url: "not available"}'
+                app:layout_constraintBottom_toBottomOf="@id/label5"
+                app:layout_constraintLeft_toRightOf="@id/label5"
+                app:layout_constraintTop_toTopOf="@id/label5" />
+
+            <TextView
+                android:id="@+id/label6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/label5" />
+
+            <TextView
+                android:id="@+id/jobDesDetails"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_margin="16dp"
+               app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/label6"
+                app:setTxt="@{favJobItem.description}" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

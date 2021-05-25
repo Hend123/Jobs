@@ -2,4 +2,14 @@
 <resources>
     <string name="title_logo">Welcome to Mega Trust Jobs</string>
     <string name="start">Start</string>
+    <string name="home">Home</string>
+    <string name="favorite">Favorite</string>
+    <string name="company_logo">company logo</string>
+    <string name="not_avaliable">Not Avaliable</string>
+    <string name="star_button">star button</string>
+    <string name="title_name">Title Name</string>
+    <string name="job_type">Job Type :</string>
+    <string name="company_name">Company Name:</string>
+    <string name="job_url">Job Url:</string>
+    <string name="company_url">Company Url:</string>
 </resources>
